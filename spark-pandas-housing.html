@@ -15772,7 +15772,7 @@ dtype: float64</pre>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
 
 <span class="c1"># create and fit the training data</span>
-<span class="n">rfr_log</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">rfr_log</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 
 <span class="n">rfr_log</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
@@ -15834,7 +15834,7 @@ Test RMSE: 0.9623
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">GradientBoostingRegressor</span>
 
-<span class="n">gbr_model</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">()</span>
+<span class="n">gbr_model</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="n">gbr_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="n">y_train_pred_gb</span> <span class="o">=</span> <span class="n">gbr_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
@@ -16743,7 +16743,7 @@ Name: condition, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
@@ -16769,7 +16769,7 @@ Name: condition, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
@@ -16839,17 +16839,16 @@ Let's try Random Forest</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestRegressor</span>
 
 <span class="c1"># create the model and fit the training set</span>
-<span class="n">rfr_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">rfr_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">rfr_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">rfr_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the train and test set</span>
-<span class="c1">#print(rfr_model.feature_importances_)</span>
 <span class="n">y_train_pred_rf</span> <span class="o">=</span> <span class="n">rfr_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
 <span class="n">y_test_pred_rf</span> <span class="o">=</span> <span class="n">rfr_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
@@ -16868,6 +16867,27 @@ Let's try Random Forest</p>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Train r2 score: 0.969414
+Test r2 score: 0.816912
+Train RMSE: 0.0316
+Test RMSE: 0.0754
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -16880,11 +16900,11 @@ Let's try Random Forest</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">xgboost</span> <span class="k">import</span> <span class="n">XGBRegressor</span>
-<span class="n">xgbr_model</span> <span class="o">=</span> <span class="n">XGBRegressor</span><span class="p">()</span>
+<span class="n">xgbr_model</span> <span class="o">=</span> <span class="n">XGBRegressor</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="n">xgbr_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="n">y_train_pred_xg</span> <span class="o">=</span> <span class="n">xgbr_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
@@ -16905,22 +16925,43 @@ Let's try Random Forest</p>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Train r2 score: 0.802498
+Test r2 score: 0.797524
+Train RMSE: 0.0756
+Test RMSE: 0.0765
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So far this is the best model. Now it's time to spend a little more time on parameter optimization to improve the performance.</p>
+<p>So far this is the best model. Fairly consistent between RMSE on training and testing. Now it's time to spend a little more time on parameter optimization.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xgbr_model_2</span> <span class="o">=</span> <span class="n">XGBRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">xgbr_model_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">early_stopping_rounds</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">eval_set</span><span class="o">=</span><span class="p">[(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xgbr_model_2</span> <span class="o">=</span> <span class="n">XGBRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">xgbr_model_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="n">y_train_pred_xg_2</span> <span class="o">=</span> <span class="n">xgbr_model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
 <span class="n">y_test_pred_xg_2</span> <span class="o">=</span> <span class="n">xgbr_model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
@@ -16940,11 +16981,401 @@ Let's try Random Forest</p>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Train r2 score: 0.8319
+Test r2 score: 0.8210
+Train RMSE: 0.0710
+Test RMSE: 0.0732
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>That looks even better and the only change we did was to increase the estimators. Let's try another tweak to the model.</p>
+<p>That looks even better and the only change made was increasing the number of estimators. Let's try another tweak to the model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xgbr_model_3</span> <span class="o">=</span> <span class="n">XGBRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">booster</span><span class="o">=</span><span class="s1">&#39;gbtree&#39;</span><span class="p">,</span> <span class="n">objective</span><span class="o">=</span><span class="s1">&#39;reg:linear&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">xgbr_model_3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">early_stopping_rounds</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">eval_set</span><span class="o">=</span><span class="p">[(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)])</span>
+
+<span class="n">y_train_pred_xg_3</span> <span class="o">=</span> <span class="n">xgbr_model_3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">y_test_pred_xg_3</span> <span class="o">=</span> <span class="n">xgbr_model_3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># evaluate the model</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Train r2 score: </span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_train_pred_xg_3</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test r2 score: </span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_pred_xg_3</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
+<span class="n">train_mse_3</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train_pred_xg_3</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">test_mse_3</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test_pred_xg_3</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">train_rmse_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">train_mse_3</span><span class="p">)</span>
+<span class="n">test_rmse_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">test_mse_3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Train RMSE: </span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">train_rmse_3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test RMSE: </span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">test_rmse_3</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0]	validation_0-rmse:0.270945
+Will train until validation_0-rmse hasn&#39;t improved in 5 rounds.
+[1]	validation_0-rmse:0.246552
+[2]	validation_0-rmse:0.224851
+[3]	validation_0-rmse:0.205534
+[4]	validation_0-rmse:0.188404
+[5]	validation_0-rmse:0.173217
+[6]	validation_0-rmse:0.159821
+[7]	validation_0-rmse:0.148099
+[8]	validation_0-rmse:0.137791
+[9]	validation_0-rmse:0.128777
+[10]	validation_0-rmse:0.120996
+[11]	validation_0-rmse:0.114168
+[12]	validation_0-rmse:0.108357
+[13]	validation_0-rmse:0.103317
+[14]	validation_0-rmse:0.099007
+[15]	validation_0-rmse:0.095402
+[16]	validation_0-rmse:0.092301
+[17]	validation_0-rmse:0.089734
+[18]	validation_0-rmse:0.087429
+[19]	validation_0-rmse:0.085556
+[20]	validation_0-rmse:0.083969
+[21]	validation_0-rmse:0.082688
+[22]	validation_0-rmse:0.08155
+[23]	validation_0-rmse:0.080601
+[24]	validation_0-rmse:0.07983
+[25]	validation_0-rmse:0.079155
+[26]	validation_0-rmse:0.078593
+[27]	validation_0-rmse:0.078108
+[28]	validation_0-rmse:0.077701
+[29]	validation_0-rmse:0.07734
+[30]	validation_0-rmse:0.077048
+[31]	validation_0-rmse:0.07679
+[32]	validation_0-rmse:0.076567
+[33]	validation_0-rmse:0.076377
+[34]	validation_0-rmse:0.0762
+[35]	validation_0-rmse:0.076045
+[36]	validation_0-rmse:0.075878
+[37]	validation_0-rmse:0.075769
+[38]	validation_0-rmse:0.075652
+[39]	validation_0-rmse:0.075545
+[40]	validation_0-rmse:0.075459
+[41]	validation_0-rmse:0.07537
+[42]	validation_0-rmse:0.075291
+[43]	validation_0-rmse:0.075207
+[44]	validation_0-rmse:0.075142
+[45]	validation_0-rmse:0.075101
+[46]	validation_0-rmse:0.075059
+[47]	validation_0-rmse:0.075022
+[48]	validation_0-rmse:0.074964
+[49]	validation_0-rmse:0.074917
+[50]	validation_0-rmse:0.074881
+[51]	validation_0-rmse:0.074824
+[52]	validation_0-rmse:0.0748
+[53]	validation_0-rmse:0.074762
+[54]	validation_0-rmse:0.074724
+[55]	validation_0-rmse:0.074697
+[56]	validation_0-rmse:0.074671
+[57]	validation_0-rmse:0.074617
+[58]	validation_0-rmse:0.074583
+[59]	validation_0-rmse:0.074552
+[60]	validation_0-rmse:0.074512
+[61]	validation_0-rmse:0.074476
+[62]	validation_0-rmse:0.074447
+[63]	validation_0-rmse:0.074426
+[64]	validation_0-rmse:0.074411
+[65]	validation_0-rmse:0.074382
+[66]	validation_0-rmse:0.074351
+[67]	validation_0-rmse:0.07433
+[68]	validation_0-rmse:0.074302
+[69]	validation_0-rmse:0.074288
+[70]	validation_0-rmse:0.074269
+[71]	validation_0-rmse:0.074241
+[72]	validation_0-rmse:0.074216
+[73]	validation_0-rmse:0.074203
+[74]	validation_0-rmse:0.074191
+[75]	validation_0-rmse:0.074173
+[76]	validation_0-rmse:0.07416
+[77]	validation_0-rmse:0.074145
+[78]	validation_0-rmse:0.074135
+[79]	validation_0-rmse:0.074106
+[80]	validation_0-rmse:0.074097
+[81]	validation_0-rmse:0.074095
+[82]	validation_0-rmse:0.074074
+[83]	validation_0-rmse:0.074035
+[84]	validation_0-rmse:0.074023
+[85]	validation_0-rmse:0.074011
+[86]	validation_0-rmse:0.073991
+[87]	validation_0-rmse:0.073985
+[88]	validation_0-rmse:0.073979
+[89]	validation_0-rmse:0.073967
+[90]	validation_0-rmse:0.073953
+[91]	validation_0-rmse:0.073946
+[92]	validation_0-rmse:0.073938
+[93]	validation_0-rmse:0.073925
+[94]	validation_0-rmse:0.073911
+[95]	validation_0-rmse:0.073891
+[96]	validation_0-rmse:0.07389
+[97]	validation_0-rmse:0.073879
+[98]	validation_0-rmse:0.07385
+[99]	validation_0-rmse:0.073839
+[100]	validation_0-rmse:0.073831
+[101]	validation_0-rmse:0.073804
+[102]	validation_0-rmse:0.073794
+[103]	validation_0-rmse:0.073787
+[104]	validation_0-rmse:0.073783
+[105]	validation_0-rmse:0.073778
+[106]	validation_0-rmse:0.073773
+[107]	validation_0-rmse:0.073767
+[108]	validation_0-rmse:0.073756
+[109]	validation_0-rmse:0.073739
+[110]	validation_0-rmse:0.073732
+[111]	validation_0-rmse:0.073716
+[112]	validation_0-rmse:0.073702
+[113]	validation_0-rmse:0.073689
+[114]	validation_0-rmse:0.073685
+[115]	validation_0-rmse:0.07368
+[116]	validation_0-rmse:0.073659
+[117]	validation_0-rmse:0.073654
+[118]	validation_0-rmse:0.073645
+[119]	validation_0-rmse:0.07364
+[120]	validation_0-rmse:0.073635
+[121]	validation_0-rmse:0.073632
+[122]	validation_0-rmse:0.073623
+[123]	validation_0-rmse:0.073612
+[124]	validation_0-rmse:0.073609
+[125]	validation_0-rmse:0.0736
+[126]	validation_0-rmse:0.073592
+[127]	validation_0-rmse:0.073592
+[128]	validation_0-rmse:0.073579
+[129]	validation_0-rmse:0.073575
+[130]	validation_0-rmse:0.073572
+[131]	validation_0-rmse:0.073555
+[132]	validation_0-rmse:0.073545
+[133]	validation_0-rmse:0.073538
+[134]	validation_0-rmse:0.07353
+[135]	validation_0-rmse:0.073522
+[136]	validation_0-rmse:0.073512
+[137]	validation_0-rmse:0.073504
+[138]	validation_0-rmse:0.073496
+[139]	validation_0-rmse:0.073494
+[140]	validation_0-rmse:0.073492
+[141]	validation_0-rmse:0.073477
+[142]	validation_0-rmse:0.073475
+[143]	validation_0-rmse:0.073475
+[144]	validation_0-rmse:0.073464
+[145]	validation_0-rmse:0.073462
+[146]	validation_0-rmse:0.073459
+[147]	validation_0-rmse:0.073456
+[148]	validation_0-rmse:0.073453
+[149]	validation_0-rmse:0.073446
+[150]	validation_0-rmse:0.07344
+[151]	validation_0-rmse:0.073439
+[152]	validation_0-rmse:0.073437
+[153]	validation_0-rmse:0.073435
+[154]	validation_0-rmse:0.073432
+[155]	validation_0-rmse:0.073428
+[156]	validation_0-rmse:0.073421
+[157]	validation_0-rmse:0.073418
+[158]	validation_0-rmse:0.073417
+[159]	validation_0-rmse:0.073418
+[160]	validation_0-rmse:0.073418
+[161]	validation_0-rmse:0.07341
+[162]	validation_0-rmse:0.073403
+[163]	validation_0-rmse:0.073403
+[164]	validation_0-rmse:0.073396
+[165]	validation_0-rmse:0.073395
+[166]	validation_0-rmse:0.073391
+[167]	validation_0-rmse:0.073381
+[168]	validation_0-rmse:0.073376
+[169]	validation_0-rmse:0.073373
+[170]	validation_0-rmse:0.073364
+[171]	validation_0-rmse:0.073363
+[172]	validation_0-rmse:0.073357
+[173]	validation_0-rmse:0.073353
+[174]	validation_0-rmse:0.073351
+[175]	validation_0-rmse:0.073345
+[176]	validation_0-rmse:0.073346
+[177]	validation_0-rmse:0.073346
+[178]	validation_0-rmse:0.073338
+[179]	validation_0-rmse:0.073335
+[180]	validation_0-rmse:0.073327
+[181]	validation_0-rmse:0.073327
+[182]	validation_0-rmse:0.073315
+[183]	validation_0-rmse:0.073312
+[184]	validation_0-rmse:0.073312
+[185]	validation_0-rmse:0.07331
+[186]	validation_0-rmse:0.073307
+[187]	validation_0-rmse:0.073304
+[188]	validation_0-rmse:0.073298
+[189]	validation_0-rmse:0.073295
+[190]	validation_0-rmse:0.073296
+[191]	validation_0-rmse:0.073263
+[192]	validation_0-rmse:0.073256
+[193]	validation_0-rmse:0.073254
+[194]	validation_0-rmse:0.073255
+[195]	validation_0-rmse:0.073253
+[196]	validation_0-rmse:0.073248
+[197]	validation_0-rmse:0.073245
+[198]	validation_0-rmse:0.073245
+[199]	validation_0-rmse:0.073238
+[200]	validation_0-rmse:0.073238
+[201]	validation_0-rmse:0.07322
+[202]	validation_0-rmse:0.073216
+[203]	validation_0-rmse:0.073213
+[204]	validation_0-rmse:0.073195
+[205]	validation_0-rmse:0.073182
+[206]	validation_0-rmse:0.073173
+[207]	validation_0-rmse:0.073175
+[208]	validation_0-rmse:0.073175
+[209]	validation_0-rmse:0.073176
+[210]	validation_0-rmse:0.073175
+[211]	validation_0-rmse:0.073172
+[212]	validation_0-rmse:0.073167
+[213]	validation_0-rmse:0.073166
+[214]	validation_0-rmse:0.073165
+[215]	validation_0-rmse:0.07316
+[216]	validation_0-rmse:0.073161
+[217]	validation_0-rmse:0.073148
+[218]	validation_0-rmse:0.073149
+[219]	validation_0-rmse:0.073147
+[220]	validation_0-rmse:0.073144
+[221]	validation_0-rmse:0.07314
+[222]	validation_0-rmse:0.07314
+[223]	validation_0-rmse:0.073133
+[224]	validation_0-rmse:0.073121
+[225]	validation_0-rmse:0.073119
+[226]	validation_0-rmse:0.073118
+[227]	validation_0-rmse:0.073116
+[228]	validation_0-rmse:0.073115
+[229]	validation_0-rmse:0.073117
+[230]	validation_0-rmse:0.073116
+[231]	validation_0-rmse:0.073109
+[232]	validation_0-rmse:0.073112
+[233]	validation_0-rmse:0.073099
+[234]	validation_0-rmse:0.073098
+[235]	validation_0-rmse:0.073099
+[236]	validation_0-rmse:0.073097
+[237]	validation_0-rmse:0.073095
+[238]	validation_0-rmse:0.073095
+[239]	validation_0-rmse:0.073093
+[240]	validation_0-rmse:0.073092
+[241]	validation_0-rmse:0.073088
+[242]	validation_0-rmse:0.073085
+[243]	validation_0-rmse:0.073085
+[244]	validation_0-rmse:0.073083
+[245]	validation_0-rmse:0.073084
+[246]	validation_0-rmse:0.073085
+[247]	validation_0-rmse:0.073082
+[248]	validation_0-rmse:0.073077
+[249]	validation_0-rmse:0.073075
+[250]	validation_0-rmse:0.073074
+[251]	validation_0-rmse:0.073073
+[252]	validation_0-rmse:0.073074
+[253]	validation_0-rmse:0.073072
+[254]	validation_0-rmse:0.073071
+[255]	validation_0-rmse:0.073073
+[256]	validation_0-rmse:0.073073
+[257]	validation_0-rmse:0.073073
+[258]	validation_0-rmse:0.073072
+[259]	validation_0-rmse:0.073069
+[260]	validation_0-rmse:0.073069
+[261]	validation_0-rmse:0.07307
+[262]	validation_0-rmse:0.07307
+[263]	validation_0-rmse:0.073055
+[264]	validation_0-rmse:0.073057
+[265]	validation_0-rmse:0.073046
+[266]	validation_0-rmse:0.073045
+[267]	validation_0-rmse:0.073045
+[268]	validation_0-rmse:0.073043
+[269]	validation_0-rmse:0.073042
+[270]	validation_0-rmse:0.073044
+[271]	validation_0-rmse:0.07304
+[272]	validation_0-rmse:0.07304
+[273]	validation_0-rmse:0.073036
+[274]	validation_0-rmse:0.073028
+[275]	validation_0-rmse:0.073022
+[276]	validation_0-rmse:0.073023
+[277]	validation_0-rmse:0.073023
+[278]	validation_0-rmse:0.073019
+[279]	validation_0-rmse:0.073021
+[280]	validation_0-rmse:0.073019
+[281]	validation_0-rmse:0.073018
+[282]	validation_0-rmse:0.073018
+[283]	validation_0-rmse:0.073017
+[284]	validation_0-rmse:0.073015
+[285]	validation_0-rmse:0.073015
+[286]	validation_0-rmse:0.073009
+[287]	validation_0-rmse:0.072992
+[288]	validation_0-rmse:0.072967
+[289]	validation_0-rmse:0.072967
+[290]	validation_0-rmse:0.072967
+[291]	validation_0-rmse:0.07296
+[292]	validation_0-rmse:0.072951
+[293]	validation_0-rmse:0.072935
+[294]	validation_0-rmse:0.072935
+[295]	validation_0-rmse:0.072936
+[296]	validation_0-rmse:0.072935
+[297]	validation_0-rmse:0.072926
+[298]	validation_0-rmse:0.072928
+[299]	validation_0-rmse:0.072918
+[300]	validation_0-rmse:0.072918
+[301]	validation_0-rmse:0.072914
+[302]	validation_0-rmse:0.072914
+[303]	validation_0-rmse:0.072915
+[304]	validation_0-rmse:0.072917
+[305]	validation_0-rmse:0.072917
+[306]	validation_0-rmse:0.072917
+Stopping. Best iteration:
+[301]	validation_0-rmse:0.072914
+
+Train r2 score: 0.8363
+Test r2 score: 0.8228
+Train RMSE: 0.0701
+Test RMSE: 0.0729
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's it, it looks like we won't be able to get any better.</p>
+<p>Our goal for RMSE was to reach 0.1 or 10% error from the actual house price. Here we reached 7%.</p>
+<p>In order to higher the r2 score we need to augment our data set. That's where we're going next, we'll integrate the income data obtained from the Census Bureau and see if we can reach a lower value than 7% for the RMSE.</p>
 
 </div>
 </div>
@@ -16954,21 +17385,7 @@ Let's try Random Forest</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># xgbr_model_3 = XGBRegressor(n_estimators=1000, learning_rate=0.08, subsample=0.75, max_depth=7)</span>
-<span class="c1"># xgbr_model_3.fit(X_train, y_train)</span>
-
-<span class="c1"># y_train_pred_xg_3 = xgbr_model_3.predict(X_train)</span>
-<span class="c1"># y_test_pred_xg_3 = xgbr_model_3.predict(X_test)</span>
-
-<span class="c1"># # evaluate the model</span>
-<span class="c1"># print(&#39;Train r2 score: {:.4f}&#39;.format(r2_score(y_train_pred_xg_3, y_train)))</span>
-<span class="c1"># print(&#39;Test r2 score: {:.4f}&#39;.format(r2_score(y_test_pred_xg_3, y_test)))</span>
-<span class="c1"># train_mse_3 = mean_squared_error(y_train_pred_xg_3, y_train)</span>
-<span class="c1"># test_mse_3 = mean_squared_error(y_test_pred_xg_3, y_test)</span>
-<span class="c1"># train_rmse_3 = np.sqrt(train_mse_3)</span>
-<span class="c1"># test_rmse_3 = np.sqrt(test_mse_3)</span>
-<span class="c1"># print(&#39;Train RMSE: {:.4f}&#39;.format(train_rmse_3))</span>
-<span class="c1"># print(&#39;Test RMSE: {:.4f}&#39;.format(test_rmse_3))</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
